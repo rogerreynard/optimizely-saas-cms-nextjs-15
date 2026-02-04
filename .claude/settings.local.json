@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(dir /b /a \"C:\\\\Users\\\\rreynard\\\\.claude\")",
+      "Bash(dir /b /a \"C:\\\\Users\\\\rreynard\\\\.claude\\\\plugins\")",
+      "Bash(dir /b /a \"C:\\\\Users\\\\rreynard\\\\.claude\\\\plugins\\\\marketplaces\")",
+      "Bash(dir /b /s \"C:\\\\Users\\\\rreynard\\\\.claude\\\\plugins\\\\cache\\\\cms-analyzers-marketplace\\\\optimizely\\\\1.0.0\")"
+    ]
+  }
+}

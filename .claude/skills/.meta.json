@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "generated": "2026-02-04T17:30:00Z",
+  "platform": "Optimizely SaaS CMS",
+  "framework": "Next.js 15",
+  "runtime": "React 19",
+  "skills": [
+    {
+      "name": "optimizely-blocks",
+      "path": ".claude/skills/optimizely-blocks/SKILL.md",
+      "patterns": 5,
+      "examples": 3,
+      "description": "Block component creation patterns"
+    },
+    {
+      "name": "optimizely-graphql",
+      "path": ".claude/skills/optimizely-graphql/SKILL.md",
+      "patterns": 7,
+      "examples": 6,
+      "description": "GraphQL query and fragment patterns"
+    },
+    {
+      "name": "optimizely-pages",
+      "path": ".claude/skills/optimizely-pages/SKILL.md",
+      "patterns": 6,
+      "examples": 4,
+      "description": "Next.js page component patterns"
+    },
+    {
+      "name": "project-conventions",
+      "path": ".claude/skills/project-conventions/SKILL.md",
+      "patterns": 12,
+      "examples": 8,
+      "description": "Project-wide coding conventions"
+    }
+  ],
+  "sourceFiles": [
+    "lib/utils/block-factory.tsx",
+    "lib/optimizely/fetch.ts",
+    "lib/optimizely/utils/language.ts",
+    "lib/optimizely/types/block.ts",
+    "lib/optimizely/queries/fragments/Block.graphql",
+    "lib/optimizely/queries/GetPageByURL.graphql",
+    "components/content-area/block.tsx",
+    "components/content-area/mapper.tsx",
+    "components/block/hero-block.tsx",
+    "components/block/profile-block.tsx",
+    "app/(site)/[locale]/[slug]/page.tsx",
+    "app/(site)/[locale]/layout.tsx"
+  ],
+  "totalPatterns": 30,
+  "totalExamples": 21
+}
