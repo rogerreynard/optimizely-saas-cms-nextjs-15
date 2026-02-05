@@ -30,15 +30,17 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <Script
           src={`${process.env.NEXT_PUBLIC_CMS_URL}/util/javascript/communicationinjector.js`}
         />
         <DraftActions />
-        <Header locale={locale} preview />
-        <main className="container mx-auto min-h-screen px-4">{children}</main>
-        <Footer locale={locale} preview />
+        <div className="flex min-h-screen flex-col justify-between">
+          <Header locale={locale} preview />
+          <main className="container mx-auto grow px-4">{children}</main>
+          <Footer locale={locale} preview />
+        </div>
       </body>
     </html>
   )
