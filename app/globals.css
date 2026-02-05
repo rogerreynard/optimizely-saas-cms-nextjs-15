@@ -70,3 +70,18 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Optimizely CMS Editor Preview Fixes */
+/* When in CMS edit mode (draft routes), adjust layout for iframe context */
+body.cms-edit-mode {
+  overflow: visible !important;
+}
+
+body.cms-edit-mode main {
+  min-height: auto !important;
+}
+
+/* Make header non-sticky in CMS editor to prevent scroll conflicts */
+body.cms-edit-mode header.sticky {
+  position: relative;
+}
