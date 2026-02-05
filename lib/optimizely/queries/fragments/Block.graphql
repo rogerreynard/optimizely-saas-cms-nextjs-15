@@ -168,6 +168,60 @@ fragment CarouselBlockFragment on CarouselBlock {
   }
 }
 
+fragment ArticleListElementFragment on ArticleListElement {
+  articleListCount
+  topics
+}
+
+fragment ContentRecsElementFragment on ContentRecsElement {
+  ElementDeliveryApiKey
+  ElementRecommendationCount
+}
+
+fragment TestimonialElementFragment on TestimonialElement {
+  customerName
+  customerLocation
+  customerImage {
+    url {
+      default
+    }
+  }
+  referenceTitle
+  referenceText {
+    json
+    html
+  }
+}
+
+fragment OdpEmbedBlockFragment on OdpEmbedBlock {
+  ContentId
+}
+
+fragment MenuNavigationBlockFragment on MenuNavigationBlock {
+  _metadata {
+    displayName
+  }
+  MenuNavigationHeading
+  NavigationLinks {
+    title
+    text
+    target
+    url {
+      default
+    }
+  }
+}
+
+fragment MegaMenuGroupBlockFragment on MegaMenuGroupBlock {
+  _metadata {
+    displayName
+  }
+  MenuMenuHeading
+  MegaMenuUrl {
+    default
+  }
+}
+
 fragment ItemsInContentArea on _IContent {
   __typename
   ...HeroBlockFragment
@@ -189,4 +243,10 @@ fragment ItemsInContentArea on _IContent {
   ...VideoElementFragment
   ...ImageElementFragment
   ...CarouselBlockFragment
+  ...ArticleListElementFragment
+  ...ContentRecsElementFragment
+  ...TestimonialElementFragment
+  ...OdpEmbedBlockFragment
+  ...MenuNavigationBlockFragment
+  ...MegaMenuGroupBlockFragment
 }

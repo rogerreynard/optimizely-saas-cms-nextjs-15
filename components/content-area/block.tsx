@@ -23,18 +23,39 @@ const StoryBlock = dynamic(() => import('../block/story-block'))
 const TestimonialsBlock = dynamic(() => import('../block/testimonials-block'))
 const TextBlock = dynamic(() => import('../block/text-block'))
 const VideoElement = dynamic(() => import('../block/video-element'))
+const ArticleListElement = dynamic(
+  () => import('../block/article-list-element')
+)
+const ContentRecsElement = dynamic(
+  () => import('../block/content-recs-element')
+)
+const TestimonialElement = dynamic(
+  () => import('../block/testimonial-element')
+)
+const OdpEmbedBlock = dynamic(() => import('../block/odp-embed-block'))
+const MenuNavigationBlock = dynamic(
+  () => import('../block/menu-navigation-block')
+)
+const MegaMenuGroupBlock = dynamic(
+  () => import('../block/mega-menu-group-block')
+)
 
 // Map the dynamically imported blocks
 export const blocks = {
+  ArticleListElement,
   AvailabilityBlock,
   ButtonBlock,
   CarouselBlock,
   ContactBlock,
+  ContentRecsElement,
   CTAElement,
   HeadingElement,
   HeroBlock,
   ImageElement,
   LogosBlock,
+  MegaMenuGroupBlock,
+  MenuNavigationBlock,
+  OdpEmbedBlock,
   ParagraphElement,
   PortfolioGridBlock,
   ProfileBlock,
@@ -42,6 +63,7 @@ export const blocks = {
   RichTextElement,
   ServicesBlock,
   StoryBlock,
+  TestimonialElement,
   TestimonialsBlock,
   TextBlock,
   VideoElement,
