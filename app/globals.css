@@ -71,24 +71,3 @@ body {
   }
 }
 
-/* Optimizely CMS Editor Preview Fixes */
-/* Use flex layout to push footer down while working within CMS scroller */
-html:has(body.cms-edit-mode),
-html:has(body.cms-edit-mode) body.cms-edit-mode {
-  height: 100%;
-}
-
-body.cms-edit-mode {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-body.cms-edit-mode main {
-  flex: 1;
-  min-height: auto !important;
-}
-
-body.cms-edit-mode footer {
-  flex-shrink: 0;
-}
