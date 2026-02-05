@@ -1,6 +1,6 @@
 query getFooter($locales: [Locales]) {
   Footer(locale: $locales) {
-    item {
+    items {
       copyrightText
       socialLinks {
         __typename

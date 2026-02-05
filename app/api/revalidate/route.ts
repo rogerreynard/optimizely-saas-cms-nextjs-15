@@ -61,7 +61,7 @@ async function fetchContentByGuid(guid: string) {
     console.error(errors)
     throw new Error('Error fetching content')
   }
-  return data?._Content?.item
+  return data?._Content?.items?.[0]
 }
 
 function normalizeUrl(url: string, locale: string): string {

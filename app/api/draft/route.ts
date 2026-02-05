@@ -20,10 +20,6 @@ export async function GET(request: NextRequest) {
     { preview: true }
   )
 
-  // Debug logging - remove after troubleshooting
-  console.log('Draft route - key:', key, 'ver:', ver)
-  console.log('Draft route - response:', JSON.stringify(response, null, 2))
-
   if (response.errors) {
     const errorsMessage = response.errors
       .map((error) => error.message)
@@ -32,12 +28,9 @@ export async function GET(request: NextRequest) {
     return new NextResponse(errorsMessage, { status: 401 })
   }
 
-  const content = response.data?._Content?.item
+  const content = response.data?._Content?.items?.[0]
   if (!content) {
-    return new NextResponse(
-      `Bad Request - No content found. Response: ${JSON.stringify(response.data)}`,
-      { status: 400 }
-    )
+    return new NextResponse('Bad Request', { status: 400 })
   }
   ;(await draftMode()).enable()
   let newUrl = ''

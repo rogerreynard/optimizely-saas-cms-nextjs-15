@@ -1,6 +1,6 @@
 query getHeader($locale: [Locales]) {
   Header(locale: $locale) {
-    item {
+    items {
       logo
       ctaText
       ctaHref

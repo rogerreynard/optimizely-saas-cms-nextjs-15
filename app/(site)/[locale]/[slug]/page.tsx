@@ -30,14 +30,14 @@ export async function generateMetadata(props: {
     return {}
   }
 
-  const page = data?.CMSPage?.item
+  const page = data?.CMSPage?.items?.[0]
   if (!page) {
     const experienceData = await optimizely.GetVisualBuilderBySlug({
       locales: [locales],
       slug: formattedSlug,
     })
 
-    const experience = experienceData.data?.SEOExperience?.item
+    const experience = experienceData.data?.SEOExperience?.items?.[0]
 
     if (experience) {
       return {
@@ -104,13 +104,13 @@ export default async function CmsPage(props: {
     slug: formattedSlug,
   })
 
-  if (errors || !data?.CMSPage?.item?._modified) {
+  if (errors || !data?.CMSPage?.items?.[0]?._modified) {
     const experienceData = await optimizely.GetVisualBuilderBySlug({
       locales: [locales],
       slug: formattedSlug,
     })
 
-    const experience = experienceData.data?.SEOExperience?.item as
+    const experience = experienceData.data?.SEOExperience?.items?.[0] as
       | SafeVisualBuilderExperience
       | undefined
 
@@ -125,7 +125,7 @@ export default async function CmsPage(props: {
     return notFound()
   }
 
-  const page = data.CMSPage.item
+  const page = data.CMSPage.items?.[0]
   const blocks = (page?.blocks ?? []).filter(
     (block) => block !== null && block !== undefined
   )
