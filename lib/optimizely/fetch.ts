@@ -32,17 +32,23 @@ const optimizelyFetch = async <Response, Variables = object>({
 > => {
   const configHeaders = headers ?? {}
 
+  // For preview/draft content, use Basic auth without the single key
+  // For published content, use the single key for anonymous access
+  let endpoint: string
   if (preview) {
     configHeaders.Authorization = `Basic ${process.env.OPTIMIZELY_PREVIEW_SECRET}`
     cache = 'no-store'
+    endpoint = process.env.OPTIMIZELY_API_URL!
+  } else {
+    endpoint = `${process.env.OPTIMIZELY_API_URL}?auth=${process.env.OPTIMIZELY_SINGLE_KEY}`
   }
+
   const cacheTags = ['optimizely-content']
   if (cacheTag) {
     cacheTags.push(cacheTag)
   }
 
   try {
-    const endpoint = `${process.env.OPTIMIZELY_API_URL}?auth=${process.env.OPTIMIZELY_SINGLE_KEY}`
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
