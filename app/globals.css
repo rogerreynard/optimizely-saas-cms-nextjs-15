@@ -72,16 +72,23 @@ body {
 }
 
 /* Optimizely CMS Editor Preview Fixes */
-/* When in CMS edit mode (draft routes), adjust layout for iframe context */
+/* Use flex layout to push footer down while working within CMS scroller */
+html:has(body.cms-edit-mode),
+html:has(body.cms-edit-mode) body.cms-edit-mode {
+  height: 100%;
+}
+
 body.cms-edit-mode {
-  overflow: visible !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 body.cms-edit-mode main {
+  flex: 1;
   min-height: auto !important;
 }
 
-/* Make header non-sticky in CMS editor to prevent scroll conflicts */
-body.cms-edit-mode header.sticky {
-  position: relative;
+body.cms-edit-mode footer {
+  flex-shrink: 0;
 }
