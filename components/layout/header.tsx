@@ -7,11 +7,17 @@ import { NavItem } from '@/lib/optimizely/types/generated'
 import Image from 'next/image'
 import { LanguageSwitcher } from './language-switcher'
 
-export async function Header({ locale }: { locale: string }) {
+export async function Header({
+  locale,
+  preview = false,
+}: {
+  locale: string
+  preview?: boolean
+}) {
   const locales = getValidLocale(locale)
   const { data } = await optimizely.getHeader(
     { locale: locales },
-    { cacheTag: 'optimizely-header' }
+    preview ? { preview: true } : { cacheTag: 'optimizely-header' }
   )
   const header = data?.Header?.items?.[0]
   if (!header) {

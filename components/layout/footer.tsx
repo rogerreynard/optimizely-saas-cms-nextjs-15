@@ -9,11 +9,17 @@ import {
   NavItem,
 } from '@/lib/optimizely/types/generated'
 
-export async function Footer({ locale }: { locale: string }) {
+export async function Footer({
+  locale,
+  preview = false,
+}: {
+  locale: string
+  preview?: boolean
+}) {
   const locales = getValidLocale(locale)
   const { data } = await optimizely.getFooter(
     { locales: locales },
-    { cacheTag: 'optimizely-footer' }
+    preview ? { preview: true } : { cacheTag: 'optimizely-footer' }
   )
   const footer = data?.Footer?.items?.[0]
   if (!footer) {

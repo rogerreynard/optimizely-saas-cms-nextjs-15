@@ -2,6 +2,8 @@ import '@/app/globals.css'
 import { Geist, Geist_Mono } from 'next/font/google'
 import Script from 'next/script'
 import DraftActions from '@/components/draft/draft-actions'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,7 +36,9 @@ export default async function RootLayout({
           src={`${process.env.NEXT_PUBLIC_CMS_URL}/util/javascript/communicationinjector.js`}
         />
         <DraftActions />
-        <main className="container mx-auto px-4">{children}</main>
+        <Header locale={locale} preview />
+        <main className="container mx-auto min-h-screen px-4">{children}</main>
+        <Footer locale={locale} preview />
       </body>
     </html>
   )
