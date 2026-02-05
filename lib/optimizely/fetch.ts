@@ -49,6 +49,11 @@ const optimizelyFetch = async <Response, Variables = object>({
   }
 
   try {
+    // Debug logging - remove after troubleshooting
+    console.log('Optimizely fetch - endpoint:', endpoint)
+    console.log('Optimizely fetch - preview:', preview)
+    console.log('Optimizely fetch - headers:', JSON.stringify(configHeaders))
+
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
@@ -64,7 +69,11 @@ const optimizelyFetch = async <Response, Variables = object>({
       next: { tags: cacheTags },
     })
 
+    // Debug: log response status
+    console.log('Optimizely fetch - response status:', response.status)
+
     const result = await response.json()
+    console.log('Optimizely fetch - result:', JSON.stringify(result))
 
     return {
       ...result,
