@@ -34,13 +34,11 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex min-h-screen flex-col justify-between">
-          <Header locale={locale} />
-          <main className="container mx-auto grow px-4">{children}</main>
-          <Footer locale={locale} />
-        </div>
+        <Header locale={locale} />
+        <main className="container mx-auto min-h-screen px-4">{children}</main>
+        <Footer locale={locale} />
       </body>
     </html>
   )
