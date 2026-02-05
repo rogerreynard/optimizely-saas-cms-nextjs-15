@@ -75,6 +75,99 @@ fragment StoryBlockFragment on StoryBlock {
   highlights
 }
 
+fragment HeadingElementFragment on HeadingElement {
+  headingText
+}
+
+fragment ParagraphElementFragment on ParagraphElement {
+  text {
+    json
+  }
+}
+
+fragment RichTextElementFragment on RichTextElement {
+  text {
+    json
+    html
+  }
+}
+
+fragment TextBlockFragment on TextBlock {
+  TextBlockOverline
+  TextBlockHeading
+  TextBlockHeadingSize
+  TextBlockDescription {
+    json
+    html
+  }
+  TextCenter
+  TextBlockWidth
+  TextClassName
+}
+
+fragment QuoteBlockFragment on QuoteBlock {
+  QuoteText
+  QuoteColor
+  QuoteActive
+  QuoteProfileName
+  QuoteProfilePicture {
+    url {
+      default
+    }
+  }
+  QuoteProfileLocation
+}
+
+fragment ButtonBlockFragment on ButtonBlock {
+  ButtonText
+  ButtonUrl {
+    default
+  }
+  ButtonClass
+  ButtonType
+  ButtonVariant
+}
+
+fragment CTAElementFragment on CTAElement {
+  Text
+  Link {
+    default
+  }
+}
+
+fragment VideoElementFragment on VideoElement {
+  title
+  video {
+    url {
+      default
+    }
+  }
+  placeholder {
+    url {
+      default
+    }
+  }
+}
+
+fragment ImageElementFragment on ImageElement {
+  altText
+  imageLink {
+    url {
+      default
+    }
+  }
+}
+
+fragment CarouselBlockFragment on CarouselBlock {
+  CarouselItemsContentArea {
+    __typename
+    ...ImageElementFragment
+    ...HeadingElementFragment
+    ...ParagraphElementFragment
+    ...CTAElementFragment
+  }
+}
+
 fragment ItemsInContentArea on _IContent {
   __typename
   ...HeroBlockFragment
@@ -86,4 +179,14 @@ fragment ItemsInContentArea on _IContent {
   ...ProfileBlockFragment
   ...AvailabilityBlockFragment
   ...StoryBlockFragment
+  ...HeadingElementFragment
+  ...ParagraphElementFragment
+  ...RichTextElementFragment
+  ...TextBlockFragment
+  ...QuoteBlockFragment
+  ...ButtonBlockFragment
+  ...CTAElementFragment
+  ...VideoElementFragment
+  ...ImageElementFragment
+  ...CarouselBlockFragment
 }
