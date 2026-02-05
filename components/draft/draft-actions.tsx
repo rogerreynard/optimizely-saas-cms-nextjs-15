@@ -11,9 +11,13 @@ const DraftActions = () => {
   }
 
   return (
-    <div className="flex justify-end gap-5 p-4">
-      <Button onClick={() => router.refresh()}>Refresh Page</Button>
-      <Button onClick={() => handleDisableDraft()}>Disable Draft</Button>
+    <div className="fixed top-2 right-4 z-50 flex gap-2">
+      <Button size="sm" onClick={() => router.refresh()}>
+        Refresh Page
+      </Button>
+      <Button size="sm" onClick={() => handleDisableDraft()}>
+        Disable Draft
+      </Button>
     </div>
   )
 }
